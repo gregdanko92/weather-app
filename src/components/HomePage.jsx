@@ -26,9 +26,6 @@ const getCurrentData = () => {
     }
 }
 
-
-
-
 function fetchData() {
     fetch(url)
         .then((response)=>response.json())
@@ -37,26 +34,21 @@ function fetchData() {
             setDataPresent(true)
         })
         .then(getCurrentData)
-        
-        
         .catch((err)=>{console.log(err)})
         return apiData
     }
 
-
-
     useEffect(function(){
         fetchData()
-        
     }, [dataPresent])
 
-    
+        
 
     return(
         <div>
             <TodayWeather value={currentWeather}/>
             <br />
-            <Forecast/>
+            <Forecast value ={forecastData}/>
 
         </div>
     )
